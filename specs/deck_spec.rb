@@ -7,10 +7,6 @@ describe Deck do
   before do
     @new_deck = Deck.new
   end
-  # Write tests for the Deck class.
-  # What should you test?
-    # 1.  Expected Behavior
-    # 2.  Edge cases
 
     # it should test .new method
     it "Can be created" do
@@ -30,10 +26,12 @@ describe Deck do
 
     it "Removes a Card from the Deck and returns the removed Card" do
       deck_two = Deck.new
+      # draw 2 cards
+      deck_two.draw
       deck_two.draw
 
-      deck_two.cards.length.must_equal 51
-      deck_two.drawn_cards.length.must_equal 1
+      deck_two.cards.length.must_equal 50
+      deck_two.drawn_cards.length.must_equal 2
     end
     # count method should return an integer
 
