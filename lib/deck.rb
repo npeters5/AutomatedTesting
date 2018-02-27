@@ -2,6 +2,7 @@
 # deck.rb
 
 require_relative 'card'
+require 'awesome_print'
 
 class Deck
 
@@ -14,12 +15,9 @@ class Deck
 
   def build_cards
     cards = []
-    card = nil
-    4.times do
+    [:hearts, :spades, :clubs, :diamonds].each do |suit|
       (1..13).each do |value|
-        [:hearts, :spades, :clubs, :diamonds].each do |suit|
-          card = Card.new(value, suit)
-        end
+        card = Card.new(value, suit)
         cards << card
       end
     end
@@ -43,3 +41,6 @@ class Deck
   end
 
 end
+
+my_deck = Deck.new
+ap my_deck.cards[51]

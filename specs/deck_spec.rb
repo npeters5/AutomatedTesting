@@ -14,13 +14,24 @@ describe Deck do
     end
 
     it "Must have 52 Card objects as attributes" do
+      @new_deck.cards.must_be_kind_of Array
       @new_deck.cards[1].must_be_instance_of Card
       @new_deck.cards[33].must_be_instance_of Card
       @new_deck.cards.length.must_equal 52
+      @new_deck.cards[0].value.must_equal "Ace"
+      @new_deck.cards[0].suit.must_equal :hearts
+      @new_deck.cards[1].value.must_equal 2
+      @new_deck.cards[1].suit.must_equal :hearts
+      @new_deck.cards[51].value.must_equal "King"
+      @new_deck.cards[51].suit.must_equal :diamonds
+      # test the number & suit at various positions
+      # test that it is kind of Array
     end
 
     it "Can shuffle the collection of cards" do
+      
       @new_deck.shuffle
+      # Maybe the below test is bad because it could be a smaller deck... do a before and after count instead
       @new_deck.cards.length.must_equal 52
     end
 
@@ -33,7 +44,6 @@ describe Deck do
       deck_two.cards.length.must_equal 50
       deck_two.drawn_cards.length.must_equal 2
     end
-    # count method should return an integer
 
     it "Can return the number of cards in the Deck" do
       deck_three = Deck.new
